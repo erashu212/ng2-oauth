@@ -1,7 +1,7 @@
 {
-  "name": "Wordbrewery",
+  "name": "ng2-oauth",
   "version": "2.0.0",
-  "description": "Wordbrewery - Fluency one sentence at a time.",
+  "description": "oauth login in angular2",
   "scripts": {
     "clean": "gulp clean",
     "compile": "gulp compile",
@@ -11,12 +11,12 @@
   },
   "repository": {
     "type": "bitbucket",
-    "url": "https://erashu212@bitbucket.org/wordbrewerycode/wordbrewery.git"
+    "url": "https://github.com/erashu212/ng2-oauth.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://bitbucket.org/wordbrewerycode/wordbrewery/issues"
+    "url": "https://github.com/erashu212/ng2-oauth/issues"
   },
   "dependencies": {
     "@angular/common": "2.0.0-rc.1",

@@ -15,7 +15,7 @@ export interface IFBUser {
   dob?: string
 }
 
-export class FBService {
+export class FBServiceObservable {
   userData$: BehaviorSubject<IUserData> = new BehaviorSubject<IUserData>({
     status: false,
     msg: '',
