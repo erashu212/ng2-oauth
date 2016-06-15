@@ -1,13 +1,14 @@
 {
   "name": "ng2-oauth",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "oauth login in angular2",
   "scripts": {
     "clean": "gulp clean",
     "compile": "gulp compile",
     "build": "gulp clean && gulp build",
     "start": "concurrently --kill-others \"gulp watch\" \"lite-server\"",
-    "postinstall": "typings install"
+    "postinstall": "typings install",
+    "prepublish": "tsc --declaration ng2-oauth.ts"
   },
   "keywords": [
     "angular2",
