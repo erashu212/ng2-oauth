@@ -8,8 +8,8 @@ Thumbs.db
 src/fonts
 src/images
 src/styles
-src/app/index.html
-src/app/systemjs.config.js
+src/index.html
+src/systemjs.config.js
 src/app/main.ts
 src/app/root.ts
 src/app/routing.ts
