@@ -3,6 +3,7 @@
   "version": "1.2.2",
   "description": "oauth login in angular2",
   "scripts": {
+    "postinstall": "typings install",
     "prepublish": "tsc --declaration"
   },
   "keywords": [
