@@ -1,20 +1,9 @@
 {
   "compilerOptions": {
-    "noImplicitAny": true,
+    "target": "es5",
     "module": "commonjs",
-    "target": "ES5",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "sourceMap": true,
-    "declaration": true
-  },
-  "files": [
-    "index.ts"
-  ],
-  "exclude": [
-    "gulpfile.ts",
-    "node_modules",
-    "typings/main",
-    "typings/main.d.ts"
-  ]
+    "declaration": false,
+    "noImplicitAny": false,
+    "noLib": false
+  }
 }

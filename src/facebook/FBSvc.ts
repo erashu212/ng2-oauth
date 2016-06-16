@@ -1,4 +1,4 @@
-import { BehaviorSubject } from 'rxjs/BehaviorSubject'
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 declare const FB: any;
 declare const window: any;
@@ -6,13 +6,13 @@ declare const window: any;
 export interface IUserData {
   status: boolean;
   msg: string;
-  data: IFBUser
+  data: IFBUser;
 }
 
 export interface IFBUser {
   name: string;
   email: string;
-  dob?: string
+  dob?: string;
 }
 
 export class FBServiceObservable {
@@ -22,7 +22,7 @@ export class FBServiceObservable {
     data: null
   });
 
-  constructor(appId) {
+  constructor(appId: string) {
     if (!window.fbAsyncInit) {
       window.fbAsyncInit = () => {
         FB.init({
@@ -32,13 +32,11 @@ export class FBServiceObservable {
         });
       };
     }
-    this.initFB();
-  }
 
-  initFB() {
-    let js,
-      id = 'facebook-jssdk',
-      ref = document.getElementsByTagName('script')[0];
+    /* init fb sdk  */
+    let js: any,
+      id: string = 'facebook-jssdk',
+      ref: any = document.getElementsByTagName('script')[0];
 
     if (document.getElementById(id)) {
       return;
@@ -47,22 +45,22 @@ export class FBServiceObservable {
     js = document.createElement('script');
     js.id = id;
     js.async = true;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
+    js.src = '//connect.facebook.net/en_US/sdk.js';
 
     ref.parentNode.insertBefore(js, ref);
   }
 
-  fbLogin() {
-    FB.getLoginStatus(response => {
+  public fbLogin() {
+    FB.getLoginStatus((response: any) => {
       this.statusChangeCallback(response);
     });
   }
 
-  fbLogout() {
+  public fbLogout() {
     FB.logout();
   }
 
-  statusChangeCallback(resp) {
+  public statusChangeCallback(resp: any) {
     if (resp.status === 'connected') {
       this.getUserData();
     } else if (resp.status === 'not_authorized') {
@@ -70,15 +68,14 @@ export class FBServiceObservable {
         status: false,
         msg: 'not_authorized',
         data: null
-      })
-    }
-    else {
+      });
+    } else {
       FB.login();
     }
   }
 
-  getUserData() {
-    FB.api('/me', (response) => {
+  public getUserData() {
+    FB.api('/me', (response: any) => {
       this.userData$.next({
         status: true,
         msg: '',
@@ -86,7 +83,7 @@ export class FBServiceObservable {
           name: response.name,
           email: response.email
         }
-      })
+      });
     });
   }
 }
