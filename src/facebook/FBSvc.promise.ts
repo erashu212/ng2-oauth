@@ -1,22 +1,25 @@
-///<reference path="../../../../typings/browser.d.ts"/>
+/// <reference path="../../typings/es6-promise/es6-promise.d.ts"/>
+
+import { Promise } from 'es6-promise';
+
 declare const FB: any;
 declare const window: any;
 
 export interface IUserData {
   status: boolean;
   msg: string;
-  data: IFBUser
+  data: IFBUser;
 }
 
 export interface IFBUser {
   name: string;
   email: string;
-  dob?: string
+  dob?: string;
 }
 
 export class FBService {
 
-  constructor(appId) {
+  constructor(appId: string) {
     if (!window.fbAsyncInit) {
       window.fbAsyncInit = () => {
         FB.init({
@@ -26,13 +29,10 @@ export class FBService {
         });
       };
     }
-    this.initFB();
-  }
-
-  initFB() {
-    let js,
-      id = 'facebook-jssdk',
-      ref = document.getElementsByTagName('script')[0];
+    /* init fb sdk */
+    let js: any,
+      id: string = 'facebook-jssdk',
+      ref: any = document.getElementsByTagName('script')[0];
 
     if (document.getElementById(id)) {
       return;
@@ -41,16 +41,16 @@ export class FBService {
     js = document.createElement('script');
     js.id = id;
     js.async = true;
-    js.src = "//connect.facebook.net/en_US/sdk.js";
+    js.src = '//connect.facebook.net/en_US/sdk.js';
 
     ref.parentNode.insertBefore(js, ref);
   }
 
-  fbLogin() {
-    return new Promise((resolve, reject) => {
-      FB.login((response) => {
+  public fbLogin() {
+    return new Promise((resolve: any, reject: any) => {
+      FB.login((response: any) => {
         if (response.authResponse) {
-          FB.api('/me', function(response) {
+          FB.api('/me', function(response: any) {
             if (!response || response.error) {
               reject({
                 data: null,
@@ -79,7 +79,7 @@ export class FBService {
     });
   }
 
-  fbLogout() {
+  public fbLogout() {
     FB.logout();
   }
 }

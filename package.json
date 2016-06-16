@@ -1,23 +1,22 @@
 {
   "name": "ng2-oauth",
-  "version": "1.2.2",
+  "version": "1.3.0",
   "description": "oauth login in angular2",
   "scripts": {
-    "postinstall": "typings install",
-    "prepublish": "tsc --declaration"
+    "prepublish": "tslint -c tslint.json index.ts src/**/*.ts && tsc --declaration index.ts"
   },
   "keywords": [
     "angular2",
     "facebook",
     "google",
     "promise",
-    "bservable"
+    "observable"
   ],
   "repository": {
     "type": "bitbucket",
     "url": "https://github.com/erashu212/ng2-oauth.git"
   },
-  "author": "",
+  "author": "@erashu212",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/erashu212/ng2-oauth/issues"
@@ -39,9 +38,9 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
-    "gulp-tslint": "^4.3.3",
-    "gulp-typescript": "^2.12.0",
+    "codelyzer": "0.0.23",
     "tslint": "^3.5.0",
-    "typescript": "^1.8.10"
+    "typescript": "^1.8.10",
+    "typings": "^1.2.0"
   }
 }
