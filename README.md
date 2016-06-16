@@ -1,14 +1,37 @@
-## Prerequisites
+```
+import { Component, Input, Output, EventEmitter, ChangeDetectionStrategy } from '@angular/core'
+import { FBService } from 'ng2-oauth/ng2-oauth';
 
-* Node.js 4.2.2 or later
-* npm install gulp -g
+@Component({
+  selector: 'fb',
+  template: `
+    <button type="button" class="btn col-md-3 btn-block btn-primary" (click)="loginByPromise()">Login</button>
+    <h1>{{userData}}</h1>
+  `
+})
 
-## Setup
+export class FacebookComponent {
+  private fb: FBService;
+  private userData;
+  private isLoggedIn: boolean;
+  private subscriber: any
 
-After cloning the repository (and when a branch is checked out):
+  @Input() appId: string;
+  @Output() onLogin: EventEmitter<any> = new EventEmitter<any>();
 
-* `npm install`
+  constructor() {
+    this.fb = new FBService(/* Use your appId*/'848981768477076');
+  }
 
-* `npm run clean && npm run build`
+  loginByPromise() {
+    this.fb.fbLogin().then((res: any) => {
+      this.userData =  res.data ? res.data.name : '';
+    })
+  }
 
-* `npm start`
+  ngOnDestroy() {
+    this.subscriber.unsubscribe();
+  }
+}
+
+```

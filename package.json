@@ -1,14 +1,9 @@
 {
   "name": "ng2-oauth",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "oauth login in angular2",
   "scripts": {
-    "clean": "gulp clean",
-    "compile": "gulp compile",
-    "build": "gulp clean && gulp build",
-    "start": "concurrently --kill-others \"gulp watch\" \"lite-server\"",
-    "postinstall": "typings install",
-    "prepublish": "tsc --declaration ng2-oauth.ts"
+    "prepublish": "tsc --declaration"
   },
   "keywords": [
     "angular2",
@@ -43,23 +38,9 @@
     "zone.js": "^0.6.12"
   },
   "devDependencies": {
-    "bootstrap": "^3.3.6",
-    "concurrently": "^2.0.0",
-    "del": "^2.2.0",
-    "font-awesome": "^4.6.1",
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.0",
-    "gulp-csso": "^2.0.0",
-    "gulp-minify-css": "^1.2.4",
-    "gulp-rename": "^1.2.2",
-    "gulp-sass": "^2.3.1",
-    "gulp-sourcemaps": "^1.6.0",
     "gulp-tslint": "^4.3.3",
     "gulp-typescript": "^2.12.0",
-    "js-cookie": "^2.1.2",
-    "lite-server": "^2.2.0",
     "tslint": "^3.5.0",
-    "typescript": "^1.8.10",
-    "typings": "^0.8.1"
+    "typescript": "^1.8.10"
   }
 }
